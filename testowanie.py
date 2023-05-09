@@ -140,12 +140,10 @@ print("Time taken to filter data:", filtering_time, '\n')
 
 
 
+data_sizes = [1000, 10000, 50000, 100000, 200000, 300000, 385639]
 
-data1 = perform_sorting_operations(filtered_file, 1000)
-data2 = perform_sorting_operations(filtered_file, 10000)
-data3 = perform_sorting_operations(filtered_file, 50000)
-data4 = perform_sorting_operations(filtered_file, 100000)
-data5 = perform_sorting_operations(filtered_file, 200000)
-data6 = perform_sorting_operations(filtered_file, 300000)
-data7 = perform_sorting_operations(filtered_file, 385639)
+data = []
+for size in data_sizes:
+    result = perform_sorting_operations(filtered_file, size)
+    data.append(result)
 
