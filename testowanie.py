@@ -112,11 +112,11 @@ def perform_sorting_operations(filtered_file, size):
     quicksort_data = quicksort_by_rating(list)
     end = time.time()
     quicksort_time = end - start
-    save('quicksort.csv', quicksort_data)
-
     start = time.time()
     merge_sort_data = merge_sort_by_rating(list)
     end = time.time()
+    save('quicksort.csv', quicksort_data)
+
     merge_sort_time = end - start
     save('merge_sort_by_rating.csv', merge_sort_data)
 
@@ -139,11 +139,9 @@ filtering_time = end - start
 print("Time taken to filter data:", filtering_time, '\n')
 
 
-
 data_sizes = [1000, 10000, 50000, 100000, 200000, 300000, 385639]
 
 data = []
 for size in data_sizes:
     result = perform_sorting_operations(filtered_file, size)
     data.append(result)
-
