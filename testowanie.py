@@ -3,7 +3,7 @@ import time
 
 def remove_empty_rankings(file):
     with open(file, 'r', encoding='utf-8', newline='') as input_file, \
-            open('Project 1 - filtered data.csv', 'w', encoding='utf-8', newline='') as output_file:
+            open('filtered data.csv', 'w', encoding='utf-8', newline='') as output_file:
 
         reader_csv = csv.reader(input_file, delimiter=',')
         writer_csv = csv.writer(output_file, delimiter=',')
@@ -12,7 +12,7 @@ def remove_empty_rankings(file):
             if len(line) >= 3 and line[2].strip():
                 writer_csv.writerow(line)
 
-        return 'Project 1 - filtered data.csv'
+        return 'filtered data.csv'
 
 def create_list(file, size):
     with open(file, 'r', encoding='utf-8', newline='') as file:
@@ -115,16 +115,16 @@ def perform_sorting_operations(filtered_file, size):
     start = time.time()
     merge_sort_data = merge_sort_by_rating(list)
     end = time.time()
-    save('quicksort.csv', quicksort_data)
+    save(f'quicksort_by_rating_{size}.csv', quicksort_data)
 
     merge_sort_time = end - start
-    save('merge_sort_by_rating.csv', merge_sort_data)
+    save(f'merge_sort_by_rating_{size}.csv', merge_sort_data)
 
     start = time.time()
     bucket_sort_data = bucket_sort_by_rating(list, 5)
     end = time.time()
     bucket_sort_time = end - start
-    save('bucket_sort_by_rating.csv', bucket_sort_data)
+    save(f'bucket_sort_by_rating_{size}.csv', bucket_sort_data)
 
     print("Time taken for quicksort:", quicksort_time)
     print("Time taken for merge sort:", merge_sort_time)
@@ -145,3 +145,4 @@ data = []
 for size in data_sizes:
     result = perform_sorting_operations(filtered_file, size)
     data.append(result)
+
